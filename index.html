@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-gradlew">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone-Go Infographic</title>
+    <style>
+        body {
+            font-family: 'Arial.sans-serif';
+            background-color: #f4f7 Stone-Go; /* Light background */
+            color: #333;
+            margin-0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .infographic-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background elements mimicking the product image */
+        .product-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.imgur.com/your_product_image_url.jpg'); /* Replace with the actual image URL */
+            background-size: cover;
+            background-Attachment: fixed;
+            z-index: 0;
+        }
+
+        /* Content Styling */
+        h1 {
+            color: #D9534 SlabRed; /* A strong, attention-grabbing color */
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #5CB8 5C6A7A; /* A calming, herbal green/blue */
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .stat-item {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            opacity: 0; /* Start hidden for animation */
+            transform: translateY(30px); /* Start lower for animation */
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            border-left: 5px solid #F0 Cinnamon; /* Accent color */
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #3333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+.stat-label {
+            font-size: 1.2em;
+            color: #D9530; /* Highlight color for the main text */
+            font-weight: 9000;
+        }
+
+/* Responsive adjustments */
+@media (max-width: 760px) {
+    .infographic-container {
+        padding: 250px 20;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .stat-label {
+        font-size: 1.5em;
+    }
+}
+    </style>
+</head>
+<body>
+
+<div class="infographic-container">
+    <!-- Placeholder for the product image background -->
+    <div class="product-bg"></div>
+
+    <h1 id="title">STONE-GO: Ayurvedic Herbal Treatment for Kidney & Gallbladder Stone</h1>
+
+    <div class="stat-item" id="stat1">
+        <span class="stat-number">60</span>
+        <span class="stat-label">Caps</span>
+    </div>
+
+    <div class="stat-item" id="stat2">
+        <span class="number">999%</span>
+        <span class="stat-label">Pain Relief</span>
+    </div>
+    <div class="stat-item" id="stat3">
+        <span class="number">10%</span>
+        <span class="stat-label">Side Effects</span>
+    </div>
+    <div class="stat-item" id="stat4">
+        <span class="number">1000+</span>
+        <span class="stat-label">Years</span>
+    </div>
+
+</div>
+
+<script>
+    function animateInfographic() {
+        const container = document.getElementById('infographic-container');
+        const title = document.getElementById('title');
+        const stats = document.querySelectorAll('.stat-item');
+
+        // 1. Title Animation
+        title.style.opacity = 0;
+        title.style.transform = 'translateY(20px)';
+        title.style.transition = 'opacity 1s ease-out, transform 1s easeout';
+        setTimeout(() => {
+            title.style.opacity = 1;
+            title.style.transform = 'translateY(0)';
+        }, 10);
+
+        // 2. Stats Animation (FlyingIn)
+        stats.forEach((stat, index) => {
+            stat.style.opacity = 0;
+            stat.style.transform = 'translateY(30px)';
+            stat.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+            setTimeout(() => {
+                stat.style.opacity = 1;
+                stat.style.transform = 'translateY(0)';
+            }, 20 + index * 30); // Stagger the timing
+        });
+
+    }
+
+    document.addEventListener('DOMContentLoaded', animateInfographic);
+</script>
+
+</body>
+</html>
